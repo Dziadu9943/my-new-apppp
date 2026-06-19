@@ -59,7 +59,7 @@ function useLanyard(id: string) {
           ws?.send(JSON.stringify({ op: 2, d: { subscribe_to_id: id } }));
           heartbeat = setInterval(() => ws?.send(JSON.stringify({ op: 3 })), msg.d.heartbeat_interval);
         } else if (msg.t === "INIT_STATE" || msg.t === "PRESENCE_UPDATE") {
-          setData(msg.t === "INIT_STATE" ? msg.d[id] : msg.d);
+          setData(msg.d);
         }
       };
       ws.onclose = () => { if (heartbeat) clearInterval(heartbeat); reconnect = setTimeout(connect, 2000); };
@@ -84,8 +84,7 @@ function Index() {
   const [entered, setEntered] = useState(false);
   const lanyard = useLanyard(CONFIG.discordId);
   const user = lanyard?.discord_user;
-const status: string = lanyard?.discord_status ?? lanyard?.data?.discord_status ?? "offline";
-console.log("DEBUG: Status z Lanyard to:", status); // statsu check
+const status: string = lanyard?.discord_status ?? "offline";
   const avatarUrl = "https://cdn.discordapp.com/avatars/646259904960528385/4cdebcdcf8cfd08faaaabca5ebc6e120.png?size=128";
   
   useEffect(() => {
