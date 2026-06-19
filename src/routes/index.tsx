@@ -19,7 +19,7 @@ const CONFIG = {
   name: "Dziadu",
   tagline: "Developer / Creator",
   youtubeBgId: "cBa4vwJ1My8",
-  audioSrc: musicAsset.url,
+  audioSrc: "/audio/welcome.mp3",
   discord: "dziadu9943",
   discordId: "646259904960528385",
   youtubeUrl: "https://www.youtube.com/@dziadu9943",
