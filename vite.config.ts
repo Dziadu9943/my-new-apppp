@@ -15,4 +15,8 @@ export default defineConfig({
   // Enable Nitro with the Netlify preset when building outside Lovable's sandbox (i.e., on Netlify CI).
   // Inside Lovable, the preset is always forced to cloudflare-module and this setting is ignored.
   nitro: { preset: "netlify" },
+  // Dodatkowa konfiguracja Vite wskazująca na Twój nowy folder audio zamiast zablokowanego public
+  vite: {
+    publicDir: "assets-audio",
+  },
 });
