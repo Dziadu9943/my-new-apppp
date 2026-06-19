@@ -85,10 +85,8 @@ function Index() {
   const lanyard = useLanyard(CONFIG.discordId);
   const user = lanyard?.discord_user;
   const status: string = lanyard?.discord_status ?? "offline";
-  const avatarUrl = user?.avatar
-    ? `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${user.avatar.startsWith("a_") ? "gif" : "png"}?size=128`
-    : null;
-
+  const avatarUrl = "https://cdn.discordapp.com/avatars/646259904960528385/4cdebcdcf8cfd08faaaabca5ebc6e120.png?size=128";
+  
   useEffect(() => {
     if (audioRef.current) audioRef.current.volume = 0.5;
   }, []);
